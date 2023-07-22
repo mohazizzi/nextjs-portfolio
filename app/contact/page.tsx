@@ -23,10 +23,10 @@ export default function Contact() {
     if (current !== null) {
       emailjs
         .sendForm(
-          `${process.env.EMAILJS_SERVICE_ID}`,
-          `${process.env.EMAILJS_TEMPLATE_ID}`,
+          "service_9kh2mum",
+          "template_8qszs4e",
           current,
-          `${process.env.EMAILJS_PUBLIC_KEY}`
+          "1tIRyBwh3tYwuwE-k"
         )
         .then(
           (result) => {

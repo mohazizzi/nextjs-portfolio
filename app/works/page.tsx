@@ -28,11 +28,7 @@ export default async function Works() {
       <div className="works__list">
         {content.works.map((work, index) => (
           <div className="works__list__item" key={index}>
-            <div
-              className={`works__list__item__image ${
-                work.smallImage && "small-image"
-              }`}
-            >
+            <div className="works__list__item__image">
               <Image
                 src={work.image}
                 alt={work.title}
