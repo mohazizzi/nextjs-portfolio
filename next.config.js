@@ -1,4 +1,23 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const path = require("path");
 
-module.exports = nextConfig
+const nextConfig = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        port: "",
+        pathname: "/mohazizzi/portfolio-content/main/images/**",
+      },
+    ],
+  },
+};
+
+module.exports = nextConfig;
