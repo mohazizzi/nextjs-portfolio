@@ -15,11 +15,13 @@ const revalidate = 86400;
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
   const [isEmailSemded, setIsEmailSended] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const current = form.current;
 
   const sendEmail = (e: any) => {
     e.preventDefault();
+    setIsSending(true);
     if (current !== null) {
       emailjs
         .sendForm(
@@ -39,6 +41,7 @@ export default function Contact() {
           }
         );
     }
+    setIsSending(false);
   };
 
   return (
@@ -86,7 +89,11 @@ export default function Contact() {
             className="contact__form__btn"
             style={myFont.style}
           >
-            ارسال پیام
+            {isSending ? (
+              <span className="contact__form__btn__loader"></span>
+            ) : (
+              "ارسال پیام"
+            )}
           </button>
         </form>
       </section>

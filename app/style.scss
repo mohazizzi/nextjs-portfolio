@@ -307,6 +307,26 @@ a {
       border: none;
       border-radius: 5px;
       padding: 0.3rem 1rem;
+
+      &__loader {
+        display: inline-block;
+        width: 50px;
+        height: 15px;
+        display: grid;
+        place-content: center;
+
+        &:after {
+          content: " ";
+          display: block;
+          width: 15px;
+          height: 15px;
+          // margin: 0 auto;
+          border-radius: 50%;
+          border: 2px solid $color-900;
+          border-color: $color-900 transparent $color-900 transparent;
+          animation: lds-dual-ring 1.2s linear infinite;
+        }
+      }
     }
     &__group {
       display: flex;
@@ -597,5 +617,13 @@ a {
     &__form {
       margin: 0 auto;
     }
+  }
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
